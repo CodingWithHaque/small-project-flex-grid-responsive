@@ -1,0 +1,465 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* Basic definition */
+:root{
+    --primary-color: rgb(6, 128, 250);
+    --secondary-color: rgb(4, 71, 139);
+    --dark-color: rgb(4, 0, 34);
+    --light-color: rgb(231, 229, 229);
+    --shadow: 1px 2px 5px dimgray;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Pacifico', sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: var(--light-color);
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+h1, h2{
+    padding: 15px 0;
+}
+p{
+    padding: 10px 0;
+    font-size: 18px;
+}
+img{
+    width: 100%;
+}
+
+/* Universal classes */
+.container{
+    max-width: 1100px;
+    margin:0 auto;
+    overflow: auto;
+    padding: 0 40px;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.grid-3{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content:start;
+    align-items: center;
+    height: 100%;
+}
+.btn{
+    background-color: var(--primary-color);
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 10px;
+    display: inline-block;
+}
+.btn:hover, .btn-outline:hover, .btn-dark:hover {
+    transform: scale(0.96);
+}
+
+.btn-outline{
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 10px;
+    display: inline-block;
+    border: 2px solid white;
+}
+.btn-dark{
+    background-color: var(--dark-color);
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 10px;
+    display: inline-block;
+}
+
+
+.card {
+    background-color: var(--light-color);
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    color: #333;
+}
+.mt-30{
+    margin-top: 30px;
+}
+/* Header portion */
+
+.header{
+    background-color: var(--primary-color);
+    height: 90px;
+    color: white;
+}
+.header .flex{
+    justify-content: space-between;
+    height: 100%;
+}
+.flex ul li a{
+    color: white;
+    padding: 5px 15px;
+    margin: 0 10px;
+    font-size: 18px;
+}
+.flex ul li a:hover{
+    border-bottom: 2px solid white;
+}
+
+/* hero section */
+
+.hero{
+    background-color: var(--primary-color);
+    height: 400px;
+    position: relative;
+}
+.hero::after{
+    background-color: var(--light-color);
+    height: 100px;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom:-70px;
+    transform: skewY(-3deg);
+}
+.hero .grid{
+    grid-template-columns: 55% auto;
+    overflow: visible;
+}
+.hero-text{
+    animation: ComeFromLeft 1s ease-in;
+}
+.hero-text, .hero-text a{
+    color: white;
+}
+.hero-form{
+    width: 400px;
+    padding: 30px;
+    position: relative;
+    top: 80px;
+    z-index: 100;
+    animation: ComeFromRight 1s ease-in;
+}
+.hero-form p{
+    font-size: 25px;
+}
+.hero-form form{
+    display: flex;
+    flex-direction: column;
+}
+.hero-form input[type=text], .hero-form input[type=email]{
+    margin: 15px 0;
+    font: 18px;
+    line-height: 20px;
+    padding: 5px;
+    width: 100%;
+    border: none;
+    background-color: var(--light-color);
+    outline: none;
+    border-bottom: 1px solid black;
+}
+.hero-form input[type=submit]{
+    margin-top: 20px;
+    border: none;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.information{
+    margin-top: 100px;
+}
+.information .flex{
+    flex-direction: column;
+}
+
+.information-title{
+    max-width: 600px;
+    margin: auto;
+}
+.information-title p{
+    font-size: 22px;
+    text-align: center;
+    border-bottom: 1px solid dimgray;
+}
+
+.information-icons{
+    width: 100%;
+}
+.information .grid{
+    grid-template-columns: repeat(3, 1fr);
+}
+.information-order i, .information-progress i, .information-complete i{
+    font-size: 40px;
+    padding: 10px 0;
+}
+.information-order h3, .information-progress h3, .information-complete h3{
+    font-size: 30px;
+}
+.information-order p, .information-progress p, .information-complete p{
+    font-size: 35px;
+    font-weight: bold;
+}
+.information-icons .card:hover, .information-progress .card:hover, .information-complete .card:hover{
+    border: 1px solid grey;
+    color: var(--primary-color);
+    transform: scale(1.01);
+}
+.information-boxes{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 100%;
+    margin-top: 20px;
+    grid-template-areas: 'info-one info-one info-two' 'info-one info-one info-three';
+    justify-content: center;
+    align-items: center;
+}
+
+.information-box-img{
+    grid-area: info-one;
+}
+.information-box-one{
+    grid-area: info-two;
+}
+.information-box-two{
+    grid-area: info-three;
+}
+
+
+.offers{
+    background-color: var(--primary-color);
+    color: white;
+    margin-top: 30px;
+    padding: 40px 0;
+}
+.offers .flex{
+    flex-wrap: wrap;
+}
+
+.offers-text{
+    width: 65%;
+    text-align: center;
+}
+.offers-text h2{
+    font-size: 40px;
+    line-height: 30px;
+    padding: 30px 0;
+}
+.offers-text p{
+    padding: 20px 0;
+}
+
+.offers-image{
+    width: 35%;
+}
+
+.languages{
+    margin-top: 40px;
+}
+
+.languages h1{
+    font-size: 40px;
+    padding: 20px 0;
+}
+
+.languages-title{
+    text-align: center;
+    max-width: 500px;
+    margin: auto;
+}
+
+.languages .container .flex{
+    flex-wrap: wrap;
+    
+
+}
+.languages-name .card{
+    transition: transform 0.2s ease-in;
+    flex-basis: 150px;
+    height: 200px;
+}
+.languages-name .card:hover{
+    transform: translateY(-8px);
+}
+.languages-name .card p{
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+.footer{
+    background-color: var(--dark-color);
+    color: white;
+    padding: 50px 0;
+    margin-top: 40px;
+}
+
+.footer .grid-3{
+    justify-content: center;
+}
+
+.site-name, .site-menu, .site-icons{
+    justify-self: center;
+}
+.site-name{
+    text-align: center;
+}
+.site-name p{
+    padding: 0;
+}
+
+.site-menu a{
+    color: white;
+    font-size: 18px;
+}
+.site-icons a{
+    padding: 10px;
+    color: white;
+}
+.fa-github:hover {
+    color: #6e6c6c;
+  }
+  
+  .fa-facebook:hover {
+    color: #1773EA;
+  }
+  
+  .fa-instagram:hover {
+    color: #B32E87;
+  }
+  
+  .fa-twitter:hover {
+    color: #1C9CEA;
+  }
+
+  @keyframes ComeFromRight {
+    0% {
+        transform: translateX(400px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+  }
+  @keyframes ComeFromLeft {
+    0% {
+        transform: translateX(-400px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+        .header .flex{
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header nav .flex{
+            flex-direction: row;
+        }
+        .header {
+            height: 150px;
+        }
+        .hero{
+            height: 600px;
+        }
+
+        .hero .grid{
+            grid-template-columns: 1fr;
+        }
+        .hero-text{
+            text-align: center;
+        }
+        .hero-form{
+            margin: 0 auto;
+        }
+        .information{
+            margin-top: 150px;
+        }
+
+        .information .grid{
+            grid-template-columns: 1fr;
+        }
+        .information-boxes{
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            width: 100%;
+            grid-template-areas: 'info-one' 'info-two' 'info-three';
+            justify-content: center;
+            align-items: center;
+        }
+
+        .offers .flex{
+            flex-direction: column;
+        }
+        .offers-text{
+            width: 100%;
+            text-align: center;
+        }
+        .offers-text h2{
+            font-size: 40px;
+            line-height: 50px;
+            padding: 30px 0;
+        }
+        .offers-text p{
+            padding: 20px 0;
+        }
+        
+        .offers-image{
+            display: none;
+            height: 0;
+        }
+        .footer .grid-3{
+            grid-template-columns: 1fr;
+        }
+  }
+
+  @media (max-width: 400px) {
+    .header nav .flex{
+        flex-direction: column;
+    }
+    .header {
+        height: 250px;
+    }
+    .flex ul li a:hover{
+        color: var(--dark-color);
+        border: none;
+    }
+    .hero-text{
+        padding: 0 30px;
+    }
+    .hero-form{
+        max-width: 300px;
+    }
+    .information{
+        margin-top: 250px;
+    }
+  }
